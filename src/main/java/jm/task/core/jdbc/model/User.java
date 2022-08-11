@@ -7,56 +7,62 @@ import javax.persistence.Table;
 @Table
 public class User {
     @Id
-    private Long id;
+    private static Long id;
 
     @Column
-    private String name;
+    private static String name;
 
     @Column
-    private String lastName;
+    private static String lastName;
 
     @Column
-    private Byte age;
+    private static Byte age;
 
     public User() {
 
     }
 
     public User(String name, String lastName, Byte age) {
-        this.name = name;
-        this.lastName = lastName;
-        this.age = age;
+        User.name = name;
+        User.lastName = lastName;
+        User.age = age;
     }
 
-    public Long getId() {
+    public static Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public static void setId(Long id) {
+        User.id = id;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        User.name = name;
     }
 
-    public String getLastName() {
+    public static String getLastName() {
         return lastName;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        User.lastName = lastName;
     }
 
-    public Byte getAge() {
+    public static Byte getAge() {
         return age;
     }
 
     public void setAge(Byte age) {
-        this.age = age;
+        User.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("User { id = '%s', name = '%s', lastName = '%s', age = '%d'}",
+                getId(), getName(), getLastName(), getAge());
     }
 }
